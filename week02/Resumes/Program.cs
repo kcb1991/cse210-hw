@@ -23,11 +23,10 @@ class Program
         job2.DisplayJobDetails();
 
         Resume myResume = new Resume();
+        myResume._name = "Kyle Boat";
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
 
         Console.WriteLine("First Job Title: " + myResume._jobs[0]._jobTitle);
-
-
-    }
+        }
 }
