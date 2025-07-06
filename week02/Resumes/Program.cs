@@ -26,7 +26,8 @@ class Program
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
 
-        Console.WriteLine(myResume._jobs[0]._jobTitle .);
+        Console.WriteLine("First Job Title: " + myResume._jobs[0]._jobTitle);
+
 
     }
 }
