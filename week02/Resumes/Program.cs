@@ -22,7 +22,7 @@ class Program
 
         job2.DisplayJobDetails();
 
-        Resume myResume = new Resume();
+
 
 
 
