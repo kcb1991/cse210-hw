@@ -4,7 +4,7 @@ public class Journal
 
     public void AddEntry()
     {
-        Console.WriteLine("Please enter a journal entry:");
+        Console.WriteLine();
         string _entryText = Console.ReadLine();
         string _date = DateTime.Now.ToString("MM/dd/yyyy");
     }
