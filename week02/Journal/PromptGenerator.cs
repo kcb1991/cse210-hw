@@ -1,6 +1,6 @@
 public class PromptGenerator
 {
-    private List<string> prompts = new List<string>
+    public List<string> prompts = new List<string>
     {
         "Who was the most interesting person I interacted with today?",
         "What was the best part of my day?",
@@ -11,7 +11,7 @@ public class PromptGenerator
         "What challenge did I overcome today?"
     };
 
-    private Random random = new Random();
+    public Random random = new Random();
 
     public string GetRandomPrompt()
     {
