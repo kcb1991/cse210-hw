@@ -1,20 +1,24 @@
 public class Journal
 {
-    public List<Entry> entries = new List<Entry>();
+    public List<string> _entries;
 
-    public void AddEntry(Entry entry)
+    public void AddEntry()
     {
-        entries.Add(entry);
 
-        if (entries.Count == 0)
-        {
-            Console.WriteLine("No journal entries were found.");
-            return;
-        }
+    }
 
-        foreach (var entry in entries)
-        {
-            Console.WriteLine(entry);
-        }
+    public void DisplayAll()
+    {
+
+    }
+
+    public void SaveToFile(string file)
+    {
+
+    }
+
+    public void LoadFromFile(string file)
+    {
+        
     }
 }
