@@ -1,6 +1,6 @@
 public class PromptGenerator
 {
-    private List<string> _prompts = new List<string>
+    public static List<string> _prompts = new List<string>
     {
         "What made me smile today?",
         "How did I overcome a challenge today?",
@@ -12,9 +12,9 @@ public class PromptGenerator
         "What was the strongest emotion I felt today?"
     };
 
-    private Random _random = new Random();
+    private static Random _random = new Random();
 
-    public string GetRandomPrompt()
+    public static string GetRandomPrompt()
     {
         int index = _random.Next(_prompts.Count);
         return _prompts[index];

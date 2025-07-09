@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 class Program
@@ -6,6 +7,7 @@ class Program
     static void Main(string[] args)
     {
         bool running = true;
+        Journal journal = new Journal();
 
         while (running)
         {
@@ -22,14 +24,21 @@ class Program
             string input = Console.ReadLine();
             int choice = int.Parse(input);
 
+
+
             switch (choice)
             {
                 case 1:
                     Console.WriteLine("Adding a journal entry.");
+                    journal.AddEntry();
                     break;
                 case 2:
                     Console.WriteLine("Displaying all entries");
-                    break;
+                    if (journal._entries.Count == 0)
+                    {
+                        Console.WriteLine("No journal entries found");
+                    }
+                        break;
                 case 3:
                     Console.WriteLine("Saving journal to file.");
                     break;
@@ -39,9 +48,6 @@ class Program
                 case 5:
                     Console.WriteLine("Exiting program. Goodbye.");
                     running = false;
-                    break;
-                default:
-                    Console.WriteLine("Error: Please enter a number 1-5.");
                     break;
             }
 
