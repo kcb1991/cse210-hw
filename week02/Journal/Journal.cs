@@ -31,8 +31,15 @@ public class Journal
     {
         using (StreamWriter sw = new StreamWriter(file))
         {
-            
-        }
+            foreach (Entry entry in _entries)
+            {
+                sw.WriteLine($"Date: {entry._date}");
+                sw.WriteLine($"Prompt: {entry._prompt}");
+                sw.WriteLine($"Entry: {entry._entry}");
+                sw.WriteLine();
+                Console.WriteLine($"Your journal entry has been save to file {file}.");
+            }
+        };
     }
 
     public void LoadFromFile(string file)
