@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO.Enumeration;
 using System.Xml.Serialization;
 
 class Program
@@ -48,6 +49,9 @@ class Program
                         break;
                 case 3:
                     Console.WriteLine("Saving journal to file.");
+                    Console.WriteLine("Please type the filename you would like to save to. Example: 'Journal.txt'");
+                    string filename = Console.ReadLine();
+                    journal.SaveToFile(filename);
                     break;
                 case 4:
                     Console.WriteLine("Loading journal from file.");
@@ -60,4 +64,3 @@ class Program
 
         }
     }
-}
