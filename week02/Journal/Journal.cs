@@ -1,3 +1,5 @@
+using System.IO.Enumeration;
+
 public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
@@ -27,7 +29,10 @@ public class Journal
 
     public void SaveToFile(string file)
     {
-
+        using (StreamWriter sw = new StreamWriter(file))
+        {
+            
+        }
     }
 
     public void LoadFromFile(string file)
