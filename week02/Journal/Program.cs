@@ -46,7 +46,7 @@ class Program
                             entry.Display();
                         }
                     }
-                        break;
+                    break;
                 case 3:
                     Console.WriteLine("Saving journal to file.");
                     Console.WriteLine("Please type the filename you would like to save to. Example: 'Journal.txt'");
@@ -64,3 +64,4 @@ class Program
 
         }
     }
+}
