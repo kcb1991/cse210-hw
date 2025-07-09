@@ -38,6 +38,13 @@ class Program
                     {
                         Console.WriteLine("No journal entries found");
                     }
+                    else
+                    {
+                        foreach (Entry entry in journal._entries)
+                        {
+                            entry.Display();
+                        }
+                    }
                         break;
                 case 3:
                     Console.WriteLine("Saving journal to file.");
