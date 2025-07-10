@@ -55,6 +55,7 @@ class Program
                     break;
                 case 4:
                     Console.WriteLine("Loading journal from file.");
+                    journal.LoadFromFile();
                     break;
                 case 5:
                     Console.WriteLine("Exiting program. Goodbye.");

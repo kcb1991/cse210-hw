@@ -11,7 +11,7 @@ public class Journal
         string _entry = Console.ReadLine();
         string _date = DateTime.Now.ToString("MM/dd/yyyy");
 
-        Entry newEntry = new Entry();
+        Entry newEntry = new Entry(_date,_prompt,_entry);
         newEntry._date = _date;
         newEntry._prompt = _prompt;
         newEntry._entry = _entry;
@@ -43,8 +43,23 @@ public class Journal
         ;
     }
 
-    public void LoadFromFile(string file)
+    public void LoadFromFile()
     {
+        Console.WriteLine("Please type a filename to load.");
+        string filename = Console.ReadLine();
+
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        for (int i = 0; i < lines.Length; i += 4)
+        {
+            string dateText = lines[i].Replace("Date: ", "").Trim();
+            string promptText = lines[i + 1].Replace("Prompt: ", "").Trim();
+            string entryText = lines[i + 2].Replace("Entry:", "").Trim();
+
+            Entry entry = new(dateText, promptText, entryText);
+            _entries.Add(entry);
+
+        }
         
     }
 }
