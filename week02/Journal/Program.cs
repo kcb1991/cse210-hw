@@ -35,17 +35,7 @@ class Program
                     break;
                 case 2:
                     Console.WriteLine("Displaying all entries");
-                    if (journal._entries.Count == 0)
-                    {
-                        Console.WriteLine("No journal entries found");
-                    }
-                    else
-                    {
-                        foreach (Entry entry in journal._entries)
-                        {
-                            entry.Display();
-                        }
-                    }
+                    journal.DisplayAll();
                     break;
                 case 3:
                     Console.WriteLine("Saving journal to file.");

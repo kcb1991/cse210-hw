@@ -4,6 +4,8 @@ public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
 
+    Journal journal = new Journal();
+
     public void AddEntry()
     {
         string _prompt = PromptGenerator.GetRandomPrompt();
@@ -11,7 +13,7 @@ public class Journal
         string _entry = Console.ReadLine();
         string _date = DateTime.Now.ToString("MM/dd/yyyy");
 
-        Entry newEntry = new Entry(_date,_prompt,_entry);
+        Entry newEntry = new Entry(_date, _prompt, _entry);
         newEntry._date = _date;
         newEntry._prompt = _prompt;
         newEntry._entry = _entry;
@@ -24,7 +26,17 @@ public class Journal
 
     public void DisplayAll()
     {
-
+        if (journal._entries.Count == 0)
+        {
+            Console.WriteLine("No journal entries found");
+        }
+        else
+        {
+            foreach (Entry entry in _entries)
+            {
+                entry.Display();
+            }
+        }
     }
 
     public void SaveToFile(string filename)
@@ -60,6 +72,6 @@ public class Journal
             _entries.Add(entry);
 
         }
-        
+
     }
 }
