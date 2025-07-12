@@ -1,10 +1,8 @@
-using System.IO.Enumeration;
+using System.Security.Cryptography.X509Certificates;
 
 public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
-
-    Journal journal = new Journal();
 
     public void AddEntry()
     {
@@ -14,9 +12,6 @@ public class Journal
         string _date = DateTime.Now.ToString("MM/dd/yyyy");
 
         Entry newEntry = new Entry(_date, _prompt, _entry);
-        newEntry._date = _date;
-        newEntry._prompt = _prompt;
-        newEntry._entry = _entry;
 
         _entries.Add(newEntry);
 
@@ -26,7 +21,7 @@ public class Journal
 
     public void DisplayAll()
     {
-        if (journal._entries.Count == 0)
+        if (_entries.Count == 0)
         {
             Console.WriteLine("No journal entries found");
         }
@@ -41,6 +36,7 @@ public class Journal
 
     public void SaveToFile(string filename)
     {
+
         using (StreamWriter sw = new StreamWriter(filename))
         {
             foreach (Entry entry in _entries)
@@ -50,7 +46,7 @@ public class Journal
                 sw.WriteLine($"Entry: {entry._entry}");
                 sw.WriteLine();
             }
-            Console.WriteLine($"Your journal entry has been save to file  '{filename}'.");
+            Console.WriteLine($"Your journal entry has been saved to file  '{filename}'.");
         }
         ;
     }
@@ -73,5 +69,23 @@ public class Journal
 
         }
 
+    }
+    public void SearchEntries(string keyword)
+    {
+        var matches = _entries
+        .Where(e => e._entry.Contains(keyword, StringComparison.OrdinalIgnoreCase));
+
+        if (!matches.Any())
+        {
+            Console.WriteLine($"No entries contain '{keyword}'.");
+        }
+        else
+        {
+            Console.WriteLine($"Entries that contain '{keyword}'.");
+            foreach (var entry in matches)
+            {
+                entry.Display();
+            }
+        }
     }
 }
