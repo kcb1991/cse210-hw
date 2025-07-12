@@ -14,9 +14,6 @@ public class Journal
         Entry newEntry = new Entry(_date, _prompt, _entry);
 
         _entries.Add(newEntry);
-
-
-
     }
 
     public void DisplayAll()
@@ -37,7 +34,7 @@ public class Journal
     public void SaveToFile(string filename)
     {
 
-        using (StreamWriter sw = new StreamWriter(filename))
+        using (StreamWriter sw = new StreamWriter(filename, append: true))
         {
             foreach (Entry entry in _entries)
             {
@@ -46,15 +43,16 @@ public class Journal
                 sw.WriteLine($"Entry: {entry._entry}");
                 sw.WriteLine();
             }
-            Console.WriteLine($"Your journal entry has been saved to file  '{filename}'.");
+            Console.WriteLine($"Your journal entry has successfully been saved to file: '{filename}'.");
         }
         ;
     }
 
     public void LoadFromFile()
     {
+        Console.WriteLine();
         Console.WriteLine("Please type a filename to load.");
-        string filename = Console.ReadLine();
+        string filename = Console.ReadLine().Trim();
 
         string[] lines = System.IO.File.ReadAllLines(filename);
 
@@ -68,7 +66,7 @@ public class Journal
             _entries.Add(entry);
 
         }
-
+        Console.WriteLine($"Your journal entries have been successfully loaded from file: '{filename}' ");
     }
     public void SearchEntries(string keyword)
     {
@@ -77,11 +75,11 @@ public class Journal
 
         if (!matches.Any())
         {
-            Console.WriteLine($"No entries contain '{keyword}'.");
+            Console.WriteLine($"No entries contain the keyword: '{keyword}'.");
         }
         else
         {
-            Console.WriteLine($"Entries that contain '{keyword}'.");
+            Console.WriteLine($"Entries that contain the keyword: '{keyword}'.");
             foreach (var entry in matches)
             {
                 entry.Display();
