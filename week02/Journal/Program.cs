@@ -13,7 +13,6 @@ class Program
 
         while (running)
         {
-
             Console.WriteLine("Welcome to the Journal program.");
             Console.WriteLine("Please select one of the following options:");
             Console.WriteLine("1: Add a journal entry.");
