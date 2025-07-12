@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
 using System.IO.Enumeration;
 using System.Xml.Serialization;
 
@@ -19,8 +20,9 @@ class Program
             Console.WriteLine("2: Display all journal entries.");
             Console.WriteLine("3: Save journal to file.");
             Console.WriteLine("4: Load journal from file.");
-            Console.WriteLine("5: Exit.");
-            Console.WriteLine("Please type a number 1-5.");
+            Console.WriteLine("5: Search entries by keyword");
+            Console.WriteLine("6: Exit.");
+            Console.WriteLine("Please type a number 1-6.");
 
             string input = Console.ReadLine();
             int choice = int.Parse(input);
@@ -48,6 +50,11 @@ class Program
                     journal.LoadFromFile();
                     break;
                 case 5:
+                    Console.WriteLine("Please enter a keyword to search your journal entries for.");
+                    string keyword = Console.ReadLine();
+                    journal.SearchEntries(keyword);
+                    break;
+                case 6:
                     Console.WriteLine("Exiting program. Goodbye.");
                     running = false;
                     break;
