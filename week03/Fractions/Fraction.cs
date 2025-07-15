@@ -23,10 +23,6 @@ public class Fraction
         _bottomNumber = bottom;
     }
 
-    Fraction fraction1 = new Fraction();
-    Fraction fraction2 = new Fraction(6);
-    Fraction fraction3 = new Fraction(6, 7);
-
     public int GetTop()
     {
         return _topNumber;
@@ -46,11 +42,11 @@ public class Fraction
 
     public string GetFractionString()
     {
-        string text = $"{_topNumber}/ {_bottomNumber}";
+        string text = $"{_topNumber}/{_bottomNumber}";
         return text;
     }
     public double GetDecimal()
     {
-        return (double)_topNumber / (double)_bottomNumber;
+        return (double)_topNumber / _bottomNumber;
     }
 }
