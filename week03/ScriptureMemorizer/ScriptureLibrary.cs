@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 public class ScriptureLibrary
 {
     private List<Scripture> Scriptures = new List<Scripture>();
@@ -5,24 +7,36 @@ public class ScriptureLibrary
 
     public void LoadFromTextFile(string filePath)
 {
-    var lines = File.ReadAllLines(filePath);
+    string[] lines = File.ReadAllLines(filePath);
+
     foreach (string line in lines)
     {
-        var match = Regex.Match(line, @"^(.*?) (\d+):(\d+)(?:–(\d+))? — (.+)$");
-        if (match.Success)
-        {
-            string book = match.Groups[1].Value.Trim();
-            int chapter = int.Parse(match.Groups[2].Value);
-            int startVerse = int.Parse(match.Groups[3].Value);
-            int endVerse = match.Groups[4].Success ? int.Parse(match.Groups[4].Value) : startVerse;
-            string text = match.Groups[5].Value.Trim();
+        string[] splitLine = line.Split(" — ");
+        if (splitLine.Length != 2)
+            continue;
 
-            var reference = new Reference(book, chapter, startVerse, endVerse);
-            var scripture = new Scripture(reference, text);
-            Scriptures.Add(scripture);
-        }
+        string referenceText = splitLine[0].Trim();
+        string scriptureText = splitLine[1].Trim();
+
+        
+        Match match = Regex.Match(referenceText, @"^(.*?) (\d+):(\d+)(?:-(\d+))?$");
+
+        if (!match.Success)
+            continue; 
+
+        string bookName = match.Groups[1].Value;
+        int chapter = int.Parse(match.Groups[2].Value);
+        int startVerse = int.Parse(match.Groups[3].Value);
+        int endVerse = match.Groups[4].Success ? int.Parse(match.Groups[4].Value) : startVerse;
+
+        
+        Reference reference = new Reference(bookName, chapter, startVerse, endVerse);
+        Scripture scripture = new Scripture(reference, scriptureText);
+
+        Scriptures.Add(scripture);
     }
 }
+
 
 
     public Scripture GetRandomScripture()
