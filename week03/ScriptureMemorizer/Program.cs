@@ -1,5 +1,8 @@
 using System;
 
+// I have added a menu to select from each of the books of scripture.
+// I also included a file for each books list of scripture mastery verses.
+// The corresponding file will be loaded to grab a random verse for studying.
 class Program
 {
     static void Main(string[] args)
@@ -33,7 +36,7 @@ class Program
                     continue;
             }
 
-            
+
             ScriptureLibrary library = new ScriptureLibrary();
             library.LoadFromTextFile(fileName);
 
@@ -45,7 +48,7 @@ class Program
                 continue;
             }
 
-            
+
             while (true)
             {
                 Console.Clear();
