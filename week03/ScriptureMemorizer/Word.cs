@@ -12,7 +12,7 @@ public class Word
         Text = text;
         IsVisible = true;
 
-        Match match = Regex.Match(text, @"^(\w+)(\W*)$");
+        Match match = Regex.Match(text, @"^([A-Za-z']+)([^A-Za-z']*)$");
         CoreText = match.Groups[1].Value;
         Punctuation = match.Groups[2].Value;
     }
