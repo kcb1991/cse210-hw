@@ -1,8 +1,8 @@
 public class Video
 {
-    public string Title{get; private set;}
-    public string Author{get; private set;}
-    public int Length{get; private set;}
+    public string Title { get; private set; }
+    public string Author { get; private set; }
+    public int Length { get; private set; }
 
     private List<Comment> comments = new List<Comment>();
 
@@ -13,13 +13,17 @@ public class Video
         Length = length;
     }
 
-    public void AddComment(string CommenterName,string CommentText)
+    public void AddComment(string CommenterName, string CommentText)
     {
-        comments.Add(new(CommenterName,CommentText));
+        comments.Add(new(CommenterName, CommentText));
     }
     public int GetCommentCount()
     {
         return comments.Count;
+    }
+    public List<Comment> GetComments()
+    {
+        return new List<Comment>(comments);
     }
 
 }
