@@ -4,7 +4,7 @@ public class Video
     public string Author { get; private set; }
     public int Length { get; private set; }
 
-    private List<Comment> comments = new List<Comment>();
+    public List<Comment> comments = new List<Comment>();
 
     public Video(string title, string author, int length)
     {

@@ -33,7 +33,7 @@ class Program
         {
             Console.WriteLine($"{video.Title} by {video.Author} Video length:({video.Length} seconds)");
 
-            foreach (var comment in video.comments)
+            foreach (var comment in video.GetComments())
             {
                 Console.WriteLine(comment);
             }
