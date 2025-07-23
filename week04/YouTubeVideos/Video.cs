@@ -15,7 +15,7 @@ public class Video
 
     public void AddComment(string CommenterName, string CommentText)
     {
-        comments.Add(new Comment(CommenterName,CommentText));
+        comments.Add(new Comment());
     }
     public int GetCommentCount()
     {
@@ -23,7 +23,8 @@ public class Video
     }
     public List<Comment> GetComments()
     {
-        return new List<Comment>(comments);
+        new List<Comment>(comments);
+        return comments;
     }
 
 }
