@@ -1,12 +1,15 @@
 public class Comment
 {
-    public string CommenterName;
-    public string CommentText;
+    public string CommenterName { get; set; }
+    public string CommentText { get; set; }
 
-    public string comment(string commenterName, string commentText)
+    public Comment(string commenterName, string commentText)
     {
         CommenterName = commenterName;
         CommentText = commentText;
-        return $"{commenterName}:{commentText}";
+    }
+    public override string ToString()
+    {
+        return $"Comment:{CommenterName}: {CommentText}";
     }
 }

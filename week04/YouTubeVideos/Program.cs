@@ -31,11 +31,13 @@ class Program
 
         foreach (var video in videos)
         {
-            Console.WriteLine($"{video.Title} by {video.Author} Video length:({video.Length} seconds)");
+            Console.WriteLine(video);
+            Console.WriteLine();
 
-            foreach (var comment in video.GetComments())
+            foreach (Comment comment in video.GetComments())
             {
                 Console.WriteLine(comment);
+                Console.WriteLine();
             }
         }
     }

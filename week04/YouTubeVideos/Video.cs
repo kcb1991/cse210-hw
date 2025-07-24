@@ -12,10 +12,15 @@ public class Video
         Author = author;
         Length = length;
     }
-
-    public void AddComment(string CommenterName, string CommentText)
+    public override string ToString()
     {
-        comments.Add(new Comment());
+        return $"Title: {Title}\n Author: {Author}\n Length: {Length} seconds\n Comments: {comments.Count}";
+    }
+
+    public void AddComment(string commenterName, string commentText)
+    {
+        Comment newComment = new Comment(commenterName, commentText);
+        comments.Add(newComment);
     }
     public int GetCommentCount()
     {
@@ -23,8 +28,7 @@ public class Video
     }
     public List<Comment> GetComments()
     {
-        new List<Comment>(comments);
-        return comments;
+        return new List<Comment>(comments);
     }
 
 }
