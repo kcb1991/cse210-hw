@@ -3,10 +3,11 @@ public class Order
     private List<Product> _products;
     private Customer _customer;
 
-    public Order(Customer customer,List<Product>)
+    public Order(Customer customer, List<Product> products)
     {
         _customer = customer;
-        _products = new List<Product>();
+        _products = products ?? new List<Product>();
+        
     }
 
     public void AddProduct(Product product)
