@@ -39,12 +39,17 @@ public class Order
     {
         return GetSubtotal() + GetShippingCost();
     }
+    public string FormatTotalCost()
+    {
+        return $"Total: ${GetTotalCost()}";
+    }
+
     public string GetPackingLabel()
     {
-        string label = "Packing Label:\n";
+        string label = "Packing Label\n";
         foreach (Product product in _products)
         {
-            label += $"Product Name: {product.Name} ID #: {product.IdNumber}";
+            label += $"Product Name: {product.Name}\nID #: {product.IdNumber}\nQuantity: {product.Quantity}\n";
         }
         return label;
     }
@@ -52,6 +57,6 @@ public class Order
 {
     Address address = _customer.Address;
 
-    return $"Shipping Label:\nName: {_customer.CustomerName}\nAddress: {address.FormatAddress()}";
+    return $"Shipping Label\n{_customer.CustomerName}\n{address.FormatAddress()}";
 }
 }

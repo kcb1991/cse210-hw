@@ -32,14 +32,14 @@ class Program
         Console.WriteLine();
         Console.WriteLine(order1.GetPackingLabel());
         Console.WriteLine();
-        Console.WriteLine(order1.GetTotalCost());
+        Console.WriteLine(order1.FormatTotalCost());
         Console.WriteLine();
 
         Console.WriteLine(order2.GetShippingLabel());
         Console.WriteLine();
         Console.WriteLine(order2.GetPackingLabel());
         Console.WriteLine();
-        Console.WriteLine(order2.GetTotalCost());
+        Console.WriteLine(order2.FormatTotalCost());
         Console.WriteLine();
     }
 }
