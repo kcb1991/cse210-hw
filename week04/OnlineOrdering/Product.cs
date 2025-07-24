@@ -10,11 +10,12 @@ public class Product
     public decimal Price => _price;
     public int Quantity => _quantity;
 
-    public Product(string name, int idNumber, decimal price)
+    public Product(string name, int idNumber, decimal price, int quantity)
     {
         _name = name;
         _idNumber = idNumber;
         _price = price;
+        _quantity = quantity;
     }
 
     public string DisplayProductInfo()
