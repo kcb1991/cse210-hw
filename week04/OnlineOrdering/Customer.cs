@@ -3,6 +3,10 @@ public class Customer
     private string _customerName;
     private Address _address;
 
+    public string CustomerName => _customerName;
+
+    public Address Address => _address;
+
     public Customer(string customerName, Address address)
     {
         _customerName = customerName;

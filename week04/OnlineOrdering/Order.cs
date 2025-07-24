@@ -49,8 +49,8 @@ public class Order
     }
     public string GetShippingLabel()
 {
-    Address address = _customer.;
+    Address address = _customer.Address;
 
-    return $"Shipping Label:\nName: {_customer._name}\nAddress: {address.FormatAddress()}";
+    return $"Shipping Label:\nName: {_customer.CustomerName}\nAddress: {address.FormatAddress()}";
 }
 }
