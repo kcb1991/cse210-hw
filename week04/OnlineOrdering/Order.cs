@@ -50,6 +50,7 @@ public class Order
         foreach (Product product in _products)
         {
             label += $"Product Name: {product.Name}\nID #: {product.IdNumber}\nQuantity: {product.Quantity}\n";
+            Console.WriteLine();
         }
         return label;
     }
