@@ -28,18 +28,22 @@ class Program
         var order1 = new Order(customer1, productsOrder1);
         var order2 = new Order(customer2, productsOrder2);
 
+        Console.WriteLine("===== SHIPPING LABEL =====");
         Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine();
+        Console.WriteLine("===== PACKING LABEL =====");
         Console.WriteLine(order1.GetPackingLabel());
-        Console.WriteLine();
-        Console.WriteLine(order1.FormatTotalCost());
-        Console.WriteLine();
+        Console.WriteLine($"TOTAL: {order1.GetTotalCost():C}");
+        Console.WriteLine("=========================\n");
 
+        Console.WriteLine("===== SHIPPING LABEL =====");
         Console.WriteLine(order2.GetShippingLabel());
-        Console.WriteLine();
+        Console.WriteLine("===== PACKING LABEL =====");
         Console.WriteLine(order2.GetPackingLabel());
-        Console.WriteLine();
-        Console.WriteLine(order2.FormatTotalCost());
-        Console.WriteLine();
+        Console.WriteLine($"TOTAL: {order2.GetTotalCost():C}");
+        Console.WriteLine("=========================\n");
+
+
+
+
     }
 }

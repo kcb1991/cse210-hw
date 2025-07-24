@@ -46,13 +46,12 @@ public class Order
 
     public string GetPackingLabel()
     {
-        string label = "Packing Label\n";
+
         foreach (Product product in _products)
         {
-            label += $"Product Name: {product.Name}\nID #: {product.IdNumber}\nQuantity: {product.Quantity}\n";
-            Console.WriteLine();
+            return $"Product Name: {product.Name}\nID #: {product.IdNumber}\nQuantity: {product.Quantity}\n";
         }
-        return label;
+        return null;
     }
     public string GetShippingLabel()
 {
