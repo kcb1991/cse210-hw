@@ -46,17 +46,17 @@ public class Order
 
     public string GetPackingLabel()
     {
-
+        string label = "";
         foreach (Product product in _products)
         {
-            return $"Product Name: {product.Name}\nID #: {product.IdNumber}\nQuantity: {product.Quantity}\n";
+            label += $"Product Name: {product.Name}\nID #: {product.IdNumber}\nQuantity: {product.Quantity}\n";
         }
-        return null;
+        return label;
     }
     public string GetShippingLabel()
 {
     Address address = _customer.Address;
 
-    return $"Shipping Label\n{_customer.CustomerName}\n{address.FormatAddress()}";
+    return $"Shipping Label\n{_customer.CustomerName}\n{address.FormatAddress()}\n";
 }
 }
