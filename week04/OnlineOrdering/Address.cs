@@ -17,7 +17,7 @@ public class Address
 
     public string FormatAddress()
     {
-        return $"{_streetAddress}\n{_city},{_state}\n{_country}";
+        return $"{_streetAddress}\n{_city},{_state}\n{_country.ToUpper()}";
     }
     public bool IsInUSA()
     {
