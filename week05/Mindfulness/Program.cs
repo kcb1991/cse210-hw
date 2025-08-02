@@ -25,7 +25,7 @@ class Program
                 "2" => new ReflectingActivity(),
                 "3" => new ListingActivity(),
                 "4" => null,
-                _ => throw new NotImplementedException()
+            
             };
 
             if (activity == null) break;
