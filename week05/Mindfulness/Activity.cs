@@ -1,15 +1,26 @@
-public class Activity
+public abstract class Activity
 {
     protected string _name;
     protected string _description;
     protected int _duration;
 
-    public Activity(string name, string description, int duration)
+    public Activity(string name, string description)
     {
         _name = name;
         _description = description;
-        _duration = duration;
     }
+
+    public void Run()
+    {
+        DisplayStartMessage();
+        PerformActivity();
+        DisplayEndMessage();
+        LoadingAnimation(3);
+    }
+
+    protected abstract void PerformActivity();
+
+
 
     public void DisplayStartMessage()
     {
