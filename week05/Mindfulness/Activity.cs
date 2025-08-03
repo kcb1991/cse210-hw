@@ -13,6 +13,7 @@ public abstract class Activity
     public void Run()
     {
         DisplayStartMessage();
+        LoadingAnimation(3);
         PerformActivity();
         DisplayEndMessage();
         LoadingAnimation(3);
