@@ -25,11 +25,20 @@ class Program
                 "2" => new ReflectingActivity(),
                 "3" => new ListingActivity(),
                 "4" => null,
+                _ => null
             
             };
 
-            if (activity == null) break;
-            activity.Run();
+            if (activity == null)
+            {
+                if (choice != "4")
+                {
+                    Console.WriteLine("Invalid selection please make a choice 1-3.");
+                    Console.ReadLine();
+                    continue;
+                }
+                break;
+            }
 
         }
     }
