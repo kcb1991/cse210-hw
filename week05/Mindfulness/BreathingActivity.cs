@@ -8,9 +8,9 @@ class BreathingActivity : Activity
         int elapsed = 0;
         while (elapsed < _duration)
         {
-            Console.WriteLine("Breathe in...");
+            Console.WriteLine("⬤ ⬤ ⬤ Breathe in...");
             CountdownTimer(3);
-            Console.WriteLine("Breathe out...");
+            Console.WriteLine("⬤ ⬤ ⬤ Breathe out...");
             CountdownTimer(3);
             elapsed += 6;
         }

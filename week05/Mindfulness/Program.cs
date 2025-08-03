@@ -7,7 +7,6 @@ class Program
 
         while (true)
         {
-            Console.Clear();
             Console.WriteLine("Welcome to the Mindfulness Program!");
             Console.WriteLine();
             Console.WriteLine("Please select a new activity to help you.");
@@ -26,7 +25,7 @@ class Program
                 "3" => new ListingActivity(),
                 "4" => null,
                 _ => null
-            
+
             };
 
             if (activity == null)
@@ -39,6 +38,9 @@ class Program
                 }
                 break;
             }
+            Console.Clear();
+            activity.Run();
         }
+
     }
 }

@@ -28,7 +28,18 @@ public abstract class Activity
         Console.WriteLine($"Welcome to the {_name} Activity.");
         Console.WriteLine(_description);
         Console.Write("Enter duration of your session in seconds:");
-        _duration = int.Parse(Console.ReadLine());
+        while (true)
+        {
+            Console.Write("Enter duration of your session in seconds: ");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out _duration) && _duration > 0)
+            {
+                break;
+            }
+
+            Console.WriteLine("Invalid input. Please enter a positive number like 30 or 60.");
+        }
         Thread.Sleep(1000);
         Console.WriteLine("Get Ready,");
         Thread.Sleep(2000);

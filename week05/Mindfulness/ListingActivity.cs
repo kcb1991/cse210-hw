@@ -21,7 +21,7 @@ public class ListingActivity : Activity
         string prompt = _prompts[rand.Next(_prompts.Length)];
         Console.WriteLine(prompt);
         Console.WriteLine("\nGet ready...");
-        CountdownTimer(3); // countdown to thinking phase
+        CountdownTimer(3);
 
         Console.WriteLine("Start listing items — press Enter after each:");
         List<string> items = new List<string>();
