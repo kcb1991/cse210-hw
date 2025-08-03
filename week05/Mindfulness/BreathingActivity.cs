@@ -6,14 +6,14 @@ class BreathingActivity : Activity
 
     protected override void PerformActivity()
     {
-        int elapsed = 0;
-        while (elapsed < _duration)
+        int _elapsed = 0;
+        while (_elapsed < _duration)
         {
             Console.WriteLine("Breathe in...");
             CountdownTimer(3);
             Console.WriteLine("Breathe out...");
             CountdownTimer(3);
-            elapsed += 6;
+            _elapsed += 6;
         }
     }
 }
