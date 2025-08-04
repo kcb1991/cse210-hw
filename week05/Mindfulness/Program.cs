@@ -39,6 +39,7 @@ class Program
             if (choice == "4")
             {
                 Console.WriteLine("Thanks for using the Mindfulness Program. Take care!");
+                break;
             }
             else
             {

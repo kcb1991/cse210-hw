@@ -28,7 +28,7 @@ public abstract class Activity
     public void DisplayStartMessage()
     {
         Console.Clear();
-        Console.WriteLine($"Welcome to the {_name} Activity.");
+        Console.WriteLine($"Welcome to the {_name}.");
         Console.WriteLine();
         Console.WriteLine(_description);
         Console.WriteLine();
@@ -43,6 +43,7 @@ public abstract class Activity
             }
 
             Console.WriteLine("Invalid input. Please enter a positive number like 30 or 60.");
+            Console.WriteLine();
         }
         Thread.Sleep(2000);
         Console.WriteLine("Get Ready,");
@@ -54,6 +55,7 @@ public abstract class Activity
 
     public void DisplayEndMessage()
     {
+        Console.WriteLine();
         Console.WriteLine($"Good work, you completed {_duration} more seconds of the {_name}.");
         Console.WriteLine();
     }
