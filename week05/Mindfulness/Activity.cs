@@ -12,8 +12,8 @@ public abstract class Activity
 
     public void Run()
     {
-        DisplayStartMessage();
         LoadingAnimation(3);
+        DisplayStartMessage();
         PerformActivity();
         DisplayEndMessage();
         LoadingAnimation(3);
@@ -76,9 +76,8 @@ public abstract class Activity
                 Console.Write(loadingText[i]);
                 Thread.Sleep(100);
             }
-            Console.Write(" ");
-            Thread.Sleep(200);
-            Console.WriteLine();
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', loadingText.Length));
         }
     }
 }
