@@ -10,7 +10,7 @@ public class ListingActivity : Activity
 
     public ListingActivity() : base(
         "Listing",
-        "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area."
+        "This activity will help you reflect on the good things in your life by having you list as many things as you can based on random prompt."
     )
     { }
 
@@ -22,6 +22,7 @@ public class ListingActivity : Activity
         string prompt = _prompts[rand.Next(_prompts.Length)];
         Console.WriteLine(prompt);
         Console.WriteLine("\nGet ready...");
+        LoadingAnimation(2);
         CountdownTimer(3);
 
         Console.WriteLine("Start listing items — press Enter after each:");

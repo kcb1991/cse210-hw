@@ -12,11 +12,13 @@ public abstract class Activity
 
     public void Run()
     {
-        LoadingAnimation(3);
+        LoadingAnimation(2);
         DisplayStartMessage();
         PerformActivity();
         DisplayEndMessage();
-        LoadingAnimation(3);
+        Console.WriteLine("Please press enter to return to the main menu");
+        Console.ReadLine();
+        
     }
 
     protected abstract void PerformActivity();
@@ -27,8 +29,9 @@ public abstract class Activity
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name} Activity.");
+        Console.WriteLine();
         Console.WriteLine(_description);
-        Console.Write("Enter duration of your session in seconds:");
+        Console.WriteLine();
         while (true)
         {
             Console.Write("Enter duration of your session in seconds: ");
@@ -41,17 +44,18 @@ public abstract class Activity
 
             Console.WriteLine("Invalid input. Please enter a positive number like 30 or 60.");
         }
-        Thread.Sleep(1000);
+        Thread.Sleep(2000);
         Console.WriteLine("Get Ready,");
         Thread.Sleep(2000);
         Console.WriteLine("Get Set,");
-        Thread.Sleep(3000);
+        Thread.Sleep(2000);
         Console.WriteLine("GO!");
     }
 
     public void DisplayEndMessage()
     {
-        Console.WriteLine($"Good work, you completed {_duration} more seconds of the {_name} Activity.");
+        Console.WriteLine($"Good work, you completed {_duration} more seconds of the {_name}.");
+        Console.WriteLine();
     }
 
     protected void CountdownTimer(int seconds)
@@ -66,7 +70,7 @@ public abstract class Activity
     protected void LoadingAnimation(int seconds)
     {
         string loadingText = "LOADING";
-        int totalCycles = seconds * 1000 / 500;
+        int totalCycles = 3;
 
         for (int cycle = 0; cycle < totalCycles; cycle++)
         {
@@ -74,7 +78,7 @@ public abstract class Activity
             for (int i = 0; i < loadingText.Length; i++)
             {
                 Console.Write(loadingText[i]);
-                Thread.Sleep(100);
+                Thread.Sleep(200);
             }
             Console.SetCursorPosition(0, Console.CursorTop);
             Console.Write(new string(' ', loadingText.Length));

@@ -39,20 +39,8 @@ public class ReflectingActivity : Activity
         {
             string question = _questions[rand.Next(_questions.Length)];
             Console.WriteLine($"Reflect: {question}");
-            LoadingSpinner(5);
+            LoadingAnimation(5);
             Console.WriteLine();
-        }
-    }
-
-    private void LoadingSpinner(int seconds)
-    {
-        char[] spinner = { '|', '/', '-', '\\' };
-        int totalTicks = seconds * 10;
-        for (int i = 0; i < totalTicks; i++)
-        {
-            Console.Write(spinner[i % spinner.Length]);
-            Thread.Sleep(100);
-            Console.Write("\b");
         }
     }
 }
