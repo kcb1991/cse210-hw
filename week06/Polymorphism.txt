@@ -1,0 +1,30 @@
+Polymorphism is a core principle when it comes to object-oriented programming. This allows objects from different classes to have different behaviors based on the object that invokes them. They can do this even when they share the same method name. This is usually done with method overriding through inheritance. One major benefit of this powerful tool is scalability and flexibility. It generally makes the code more reusable and easier to modify later on. You typically only have to change the base or parent class in order to change multiple other portions of a program. A very simple example of polymorphism is a Parent class of Shape that only accepts a string of color. Then multiple specific shape class that each refer to the base to inherit the color string for each one of those child classes.
+
+Here is an instance of polymorphism within my Shapes program. This is the base class.
+
+public class Shape
+{
+    private string _color = "";
+
+    public string GetColor()
+    {
+        return _color;
+    }
+
+
+This is a child class that uses the base to get the color and then add it's other variables or methods specific for that class.
+
+public class Circle : Shape
+{
+    private double _radius = 0;
+
+    public Circle(string color, double radius) : base(color)
+    {
+        _radius = radius;
+    }
+
+    public override double GetArea()
+    {
+        return Math.PI * _radius * _radius; 
+    }
+}
