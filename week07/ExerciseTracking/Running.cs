@@ -11,4 +11,8 @@ public class Running : Activity
     public override double GetSpeed() => (_distance / GetMinutes()) * 60;
 
     public override double GetPace() => GetMinutes() / _distance;
-}
+
+    public virtual string GetSummary()
+    {
+        return $"{_date} {GetType().Name} ({_minutes}) - Distance: {GetDistance():0.0} miles, Speed: {GetSpeed():0.0} mph, Pace: {GetPace():0.00} min per mile";
+    }
