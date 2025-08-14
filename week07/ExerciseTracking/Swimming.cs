@@ -7,11 +7,15 @@ public class Swimming : Activity
     public Swimming(string date, int minutes, int laps)
         : base(date, minutes)
     {
-        _date = date;
-        _minutes = minutes;
+        _laps = laps;
     }
 
-    public override double GetSpeed() => (_laps * 50) / 1000.0;
-    public override double GetDistance() => (GetDistance() / GetMinutes()) * 60;
+    public override double GetSpeed() => _laps * 50 / 1000.0 * 0.62;
+    public override double GetDistance() => GetDistance() / GetMinutes() * 60;
     public override double GetPace() => GetMinutes() / GetDistance();
+
+    public override string GetSummary()
+    {
+        return $"{_date} {GetType().Name} ({_minutes}) - Distance: {GetDistance():0.0} miles, Speed: {GetSpeed():0.0} mph, Pace: {GetPace():0.00} min per mile";
+    }
 }
