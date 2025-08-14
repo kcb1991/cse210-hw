@@ -10,8 +10,8 @@ public class Swimming : Activity
         _laps = laps;
     }
 
-    public override double GetSpeed() => _laps * 50 / 1000.0 * 0.62;
-    public override double GetDistance() => GetDistance() / GetMinutes() * 60;
+    public override double GetSpeed() => GetDistance() / GetMinutes() * 60;
+    public override double GetDistance() => _laps * 50 / 1000.0 * 0.62;
     public override double GetPace() => GetMinutes() / GetDistance();
 
     public override string GetSummary()
